@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//sendMail
+Route::get('/send-mail', 'ContactController@sendMail');
+Route::get('/send-mail-with-markdown', 'ContactController@sendMailWithMarkDown');
 
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
 
