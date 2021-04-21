@@ -5,3 +5,6 @@
 # Send Mail
  https://medium.com/@agavitalis/how-to-send-an-email-in-laravel-using-gmail-smtp-server-53d962f01a0c
  https://www.itsolutionstuff.com/post/laravel-8-markdown-laravel-8-send-email-using-markdown-exampleexample.html
+
+ # API INTEGRATION
+ https://www.positronx.io/laravel-php-guzzle-http-client-get-post-examples/
