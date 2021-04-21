@@ -27,6 +27,8 @@ Route::get('/google/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('/collection', 'CollectionController@rejectInactiveUser');
 
 Route::get('/sendSimpleSms', 'CustumerApi@sendSimpleSms');
+Route::get('/guzzleSendSimpleSms', 'CustumerApi@guzzleSendSimpleSms');
+
 
 
 Auth::routes();

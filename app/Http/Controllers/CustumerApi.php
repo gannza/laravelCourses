@@ -40,4 +40,31 @@ class CustumerApi extends Controller
     \Log::info($jsonResponse);
     return $jsonResponse;
  }
+
+ public function guzzleSendSimpleSms()
+{
+    $client = new \GuzzleHttp\Client();
+    $url = "https://portal.bulkgate.com/api/1.0/simple/transactional";
+
+    $formData =[
+        "application_id"=> "20274", 
+        "application_token"=> "c2l36PvSrM51bRaZmgOiC8LWHnsosBOL7mk35BwA1eJLxsrGfV", 
+        "number"=> "0781945189", 
+        "text"=> "test_sms", 
+        "country"=> "rw"
+    ];
+
+    $res = $client->request('POST', $url ,
+    ['form_params' => $formData],
+    [
+        'headers'        => array(
+            "Content-Type: application/json",
+            "Cache-Control: no-cache"
+        )
+    ]);
+    
+ 
+    \Log::info(   $res->getStatusCode() );
+    return $res->getBody();
+}
 }
