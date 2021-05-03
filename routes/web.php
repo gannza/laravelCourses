@@ -16,21 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-//sendMail
-Route::get('/send-mail', 'ContactController@sendMail');
-Route::get('/send-mail-with-markdown', 'ContactController@sendMailWithMarkDown');
+Route::get('/sendMail','ContactController@sendMailWithMarkDown');
 
-Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::get('/google/callback', 'Auth\LoginController@handleProviderCallback');
-
-Route::get('/collection', 'CollectionController@rejectInactiveUser');
-
-Route::get('/sendSimpleSms', 'CustumerApi@sendSimpleSms');
-Route::get('/guzzleSendSimpleSms', 'CustumerApi@guzzleSendSimpleSms');
-
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+require __DIR__.'/auth.php';

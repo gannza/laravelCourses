@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendMailJob;
 use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -28,8 +29,13 @@ class ContactController extends Controller
 
         $details = array('name'=>'Ogbonna Vitalis(sender_name)', 'body' => 'A test mail','url'=>'https://www.itsolutionstuff.com/post/laravel-8-markdown-laravel-8-send-email-using-markdown-exampleexample.html');
       
-        Mail::to($to_emails)->send(new ContactMail($details));
+        $this->dispatch(
+        (new SendMailJob($to_emails,$details))->delay(now()->addSeconds(5))
+    );
+        // ProcessPodcast::dispatch($podcast)
+        // ->delay(now()->addMinutes(10));
 
         return 'successful';
     }
+    //:/var/www/charcoal_traceability_system
 }
