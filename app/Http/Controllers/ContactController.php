@@ -23,9 +23,7 @@ class ContactController extends Controller
         });
     }
 
-    public function sendMailWithMarkDown(){
-
-        $to_emails = 'respinho2014@gmail.com';
+    public function sendMailWithMarkDown($to_emails='respinho2014@gmail.com'){
 
         $details = array('name'=>'Ogbonna Vitalis(sender_name)', 'body' => 'A test mail','url'=>'https://www.itsolutionstuff.com/post/laravel-8-markdown-laravel-8-send-email-using-markdown-exampleexample.html');
       

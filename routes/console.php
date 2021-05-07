@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('send:mail {email}', function ($email) {
+    app(\App\Http\Controllers\ContactController::class)->sendMailWithMarkDown($email);
+    $this->info("Sending email to: {$email}!");
+});

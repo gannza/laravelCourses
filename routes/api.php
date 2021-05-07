@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::resource("users", "UserController");
+Route::resource("students", "StudentController");
+
 Route::group(['prefix' => 'v1'], function(){
     
         Route::post('/register','AuthApiController@register');
